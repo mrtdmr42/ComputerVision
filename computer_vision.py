@@ -1,3 +1,5 @@
+# my first computer vision code
+
 from keras.models import Sequential
 from keras.layers import Conv2D, MaxPooling2D, Dense, Flatten, Dropout
 from keras.preprocessing.image import ImageDataGenerator
@@ -58,10 +60,10 @@ def prepare_model():
 
 model = prepare_model()
 model.fit(train_generator,
-                  epochs=15)
+                  epochs=10)
 
 # Load and preprocess the test image
-img_path = 'data/test/predict/315_100.jpg'
+img_path = 'data/test/cat1.jpg'
 img = image.load_img(img_path, target_size=(image_width, image_height))
 img.show()
 img_array = image.img_to_array(img)
