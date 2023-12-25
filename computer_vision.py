@@ -1,5 +1,8 @@
 # my first computer vision code
+# how it works?
 
+# we start with data. We store them in a folder structure under "training" and "test" data
+#
 from keras.models import Sequential
 from keras.layers import Conv2D, MaxPooling2D, Dense, Flatten, Dropout
 from keras.preprocessing.image import ImageDataGenerator
@@ -13,6 +16,7 @@ src_path_test = "data/test/"
 image_width, image_height = 100, 100
 
 # Define the augmentation and preprocessing configurations
+# ImageDataGenerator generates data from images
 train_datagen = ImageDataGenerator(
         rescale=1 / 255.0, # Normalize pixel values to range [0, 1]
         rotation_range=20, # Randomly rotate images in the range [-20, 20] degrees
@@ -27,6 +31,7 @@ train_datagen = ImageDataGenerator(
 test_datagen = ImageDataGenerator(rescale=1 / 255.0)
 
 batch_size = 8
+#train_generator is the training data which is consisting of image data which is coming from the image directory
 train_generator = train_datagen.flow_from_directory(
     directory=src_path_train,
     target_size=(100, 100),
